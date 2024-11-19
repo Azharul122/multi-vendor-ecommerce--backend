@@ -11,6 +11,8 @@ const userRegistrationZodValidation = z.object({
   photo: z.string().optional(),
   isDelated: z.boolean().default(false),
   isBlocked: z.boolean().default(false),
+  resetPasswordToken: z.string().optional(),
+  resetPasswordExpiresAt: z.date().optional(),
   craetedAt: z.date().optional(),
   updatedAt: z.date().optional(),
 });

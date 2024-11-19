@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema(
     id: { type: String },
     name: { type: String, required: true },
     password: { type: String, required: true },
-    email: { type: String, required: true, unique:true },
+    email: { type: String, required: true, unique: true },
     role: {
       type: String,
       enum: Object.keys(RoleType),
@@ -20,11 +20,13 @@ const userSchema = new mongoose.Schema(
       enum: Object.keys(genderType),
       type: String,
       default: RoleType.user,
-      required:false
+      required: false,
     },
     isDeleted: { type: Boolean, default: false },
     isBlocked: { type: Boolean, default: false },
     photo: String,
+    resetPasswordToken: String,
+    resetPasswordExpiresAt: Date,
   },
   { timestamps: true },
 );
@@ -35,8 +37,8 @@ userSchema.pre('save', async function (next) {
   user.password = await bcryptjs.hash(user.password, Number(config.salt_round));
   next();
 });
-userSchema.post('save', async function (doc,next) {
-  doc.password=""
+userSchema.post('save', async function (doc, next) {
+  doc.password = '';
 
   // user.password = await bcryptjs.hash(user.password, Number(config.salt_round));
   next();

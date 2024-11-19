@@ -1,6 +1,6 @@
 import { genderType, RoleType } from './user.constance';
 
-export interface IUser extends Document{
+export interface IUser extends Document {
   id?: string;
   name: string;
   email: string;
@@ -11,6 +11,8 @@ export interface IUser extends Document{
   isDeleted?: boolean;
   isBlocked?: boolean;
   photo?: string;
+  resetPasswordToken?: string;
+  resetPasswordExpiresAt?: Date;
   createdAt?: string;
   updatedAt?: string;
 }
