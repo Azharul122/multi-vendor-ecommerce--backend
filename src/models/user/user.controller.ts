@@ -1,21 +1,18 @@
 import { Request, Response } from 'express';
 import { userServices } from './user.service';
+import catchError from '../../utils/catchError';
 
-const createUser = async (req: Request, res: Response) => {
-  try {
-    const user = req.body;
+const createUser = catchError(async (req: Request, res: Response) => {
+  const user = req.body;
 
-    const result = await userServices.createUserIntoDB(user);
+  const result = await userServices.createUserIntoDB(user);
 
-    res.status(201).json({
-      success: true,
-      message: 'User created',
-      data: result,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+  res.status(201).json({
+    success: true,
+    message: 'User created',
+    data: result,
+  });
+});
 
 const getAllUser = async (req: Request, res: Response) => {
   try {
@@ -53,5 +50,5 @@ const getUserDetails = async (req: Request, res: Response) => {
 export const userController = {
   createUser,
   getAllUser,
-  getUserDetails
+  getUserDetails,
 };

@@ -10,7 +10,10 @@ export interface IUser extends Document {
   gender?: keyof typeof genderType;
   isDeleted?: boolean;
   isBlocked?: boolean;
+  isVerified:boolean;
   photo?: string;
+  verificationToken?:string;
+  verificationTokenExpiresAt?:Date
   resetPasswordToken?: string;
   resetPasswordExpiresAt?: Date;
   createdAt?: string;

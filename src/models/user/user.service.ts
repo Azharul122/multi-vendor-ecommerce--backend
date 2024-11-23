@@ -8,7 +8,7 @@ const createUserIntoDB = async (user: IUser) => {
     userValidation.userRegistrationZodValidation.parse(user);
   const result = await User.create(validatedUser);
 
-  //   const validateData=userValidation.userRegistrationZodValidation(result)
+    // const validateData=userValidation.userRegistrationZodValidation(result)
 
   return result;
 };

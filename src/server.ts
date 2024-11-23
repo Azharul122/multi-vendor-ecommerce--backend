@@ -5,9 +5,7 @@ import app from './app';
 async function main() {
   try {
     await mongoose
-      .connect(
-         config.mongo_uri_local as string,
-      )
+      .connect(config.mongo_uri as string)
       .then(() => {
         console.log('connected');
       })

@@ -24,7 +24,13 @@ const userSchema = new mongoose.Schema(
     },
     isDeleted: { type: Boolean, default: false },
     isBlocked: { type: Boolean, default: false },
+    isVerified: {
+			type: Boolean,
+			default: false,
+		},
     photo: String,
+    verificationToken: String,
+    verificationTokenExpiresAt: String,
     resetPasswordToken: String,
     resetPasswordExpiresAt: Date,
   },
