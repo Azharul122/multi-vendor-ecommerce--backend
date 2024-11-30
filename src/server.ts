@@ -7,7 +7,7 @@ async function main() {
     await mongoose
       .connect(config.mongo_uri as string)
       .then(() => {
-        console.log('connected');
+        console.log('connected')
       })
       .catch(() => {
         console.log('try again');

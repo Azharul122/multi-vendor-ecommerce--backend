@@ -11,7 +11,6 @@ import {
   sendVerificationEmail,
   sendWelcomeEmail,
 } from '../../mailtrap/emails';
-import { Response } from 'express';
 import { userValidation } from '../user/user.validation';
 
 // ............ Register ...........

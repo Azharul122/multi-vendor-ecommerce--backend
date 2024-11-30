@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { genderType, RoleType } from './user.constance';
 
 const userRegistrationZodValidation = z.object({
-  name: z.string().min(5, 'Password at least 5 characters'),
+  name: z.string().min(5, 'Name at least 5 characters'),
   password: z.string().min(8, 'Password at least 8 characters'),
   email: z.string().email('Invalid email'),
   role: z.nativeEnum(RoleType).default(RoleType.user),

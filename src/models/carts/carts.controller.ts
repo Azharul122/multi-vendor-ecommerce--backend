@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import catchError from '../../utils/catchError';
-import { productsServices } from './product.services';
+import { productsServices } from './cart.services';
 
 const createProduct = catchError(async (req: Request, res: Response) => {
   const product = req.body;
